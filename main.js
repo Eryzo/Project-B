@@ -6,19 +6,27 @@ cnv.width = 800;
 cnv.height = 600;
 
 // Variables
-let x = 35;
+let x = 5;
 let y = 440;
-let xc = 55;
+let xc = 25;
 let yc = 438;
-let xc2 = 150;
+let xc2 = 120;
 
 // Array
 let Snow = [];
 snowFn(50);
 
+let state = "scene1"
+
 requestAnimationFrame(draw);
 function draw() {
-    scene1();
+    if (state === "scene1") {
+        scene1();
+    } else if (state === "scene2") {
+        scene2();
+    } else if (state === "scene3") {
+        scene3();
+    }
 
     requestAnimationFrame(draw);
 }

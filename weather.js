@@ -38,8 +38,6 @@ function bigCircle(x, y, color) {
     circle(x, y, 35, "fill");
 }
 
-let state = scene1();
-
 function scene1() {
 
     // Fill Canvas
@@ -56,11 +54,11 @@ function scene1() {
     car(x, y, xc, yc, xc2, "green");
 
 
-    if (x === 850) {
-        x = 35; xc = 55; xc2 = 150;
-        state = scene2();
+    if (x === 810) {
+        x = 5; xc = 25; xc2 = 120;
+        state = "scene2";
     } else if (x <= 0) {
-        x = 35; xc = 55; xc2 = 150;
+        x = 5; xc = 25; xc2 = 120;
     }
 
 }
@@ -74,5 +72,31 @@ function scene2() {
     ground(0, 450, "green");
     bigCircle(700, 100, "yellow");
     car(x, y, xc, yc, xc2, "blue");
+
+    if (x === 820) {
+        x = 5; xc = 25; xc2 = 120;
+        state = "scene3";
+    } else if (x <= 0) {
+        x = 795; xc = 815; xc2 = 915;
+        state = "scene1";
+    }
+
+}
+
+function scene3() {
+
+    // Fill Canvas
+    background("lightblue");
+
+    ground(0, 450, "green");
+    bigCircle(700, 100, "orange");
+    car(x, y, xc, yc, xc2, "white");
+
+    if (x === 820) {
+        x = 5; xc = 25; xc2 = 120;
+    } else if (x <= 0) {
+        x = 795; xc = 815; xc2 = 915;
+        state = "scene2";
+    }
 
 }
