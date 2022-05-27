@@ -38,8 +38,38 @@ function bigCircle(x, y, color) {
     circle(x, y, 35, "fill");
 }
 
-function scene1() {
+function newRandomRain() {
+    return {
+        x: randomInt(0, cnv.width),
+        y: randomInt(0, cnv.height),
+        xr: randomInt(1, 2),
+        yr: randomInt(2, 6),
+        color: "lightblue",
+        speed: randomInt(2, 5)
+    };
+}
 
+function RainFn(total) {
+    for (let n = 1; n <= total; n++) {
+        Rain.push(newRandomRain());
+    }
+    return Rain;
+}
+
+function drawRain(rain) {
+    fill(rain.color);
+    ellipse(rain.x, rain.y, rain.xr, rain.yr, 0, "fill");
+}
+
+function moveRain(rain) {
+    if (rain.y > cnv.height) {
+        rain.y = 0;
+        rain.x = randomInt(0, 800);
+    }
+    rain.y += rain.speed;
+}
+
+function scene1() {
     // Fill Canvas
     background("black");
 
@@ -61,6 +91,12 @@ function scene1() {
         x = 5; xc = 25; xc2 = 120;
     }
 
+    if (aStart = true) {
+        if (x <= 0) {
+            x = 5; xc = 25; xc2 = 120;
+        }
+    }
+
 }
 
 // Scene 2
@@ -69,8 +105,14 @@ function scene2() {
     // Fill Canvas
     background("grey");
 
+    // Move & Draw rain
+    for (let i = 0; i < Rain.length; i++) {
+        moveRain(Rain[i])
+        drawRain(Rain[i])
+    }
+
     ground(0, 450, "green");
-    bigCircle(700, 100, "yellow");
+    bigCircle(700, 100, "orange");
     car(x, y, xc, yc, xc2, "blue");
 
     if (x === 820) {
@@ -89,14 +131,35 @@ function scene3() {
     background("lightblue");
 
     ground(0, 450, "green");
-    bigCircle(700, 100, "orange");
+    bigCircle(700, 100, "yellow");
     car(x, y, xc, yc, xc2, "white");
 
     if (x === 820) {
         x = 5; xc = 25; xc2 = 120;
+        state = "scene4"
     } else if (x <= 0) {
         x = 795; xc = 815; xc2 = 915;
         state = "scene2";
+    }
+
+}
+
+function scene4() {
+
+    // Fill Canvas
+    background("grey");
+
+    ground(0, 450, "green");
+    bigCircle(700, 100, "orange");
+    car(x, y, xc, yc, xc2, "purple");
+
+    if (x === 820) {
+        aStart = true;
+        x = 5; xc = 25; xc2 = 120;
+        state = "scene1";
+    } else if (x <= 0) {
+        x = 795; xc = 815; xc2 = 915;
+        state = "scene3"
     }
 
 }

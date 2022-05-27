@@ -38,6 +38,24 @@ function line(x1, y1, x2, y2) {
     ctx.stroke();
 }
 
+function ellipse(x, y, xRadius, yRadius, rotation, mode) {
+    ctx.beginPath();
+    ctx.ellipse(x, y, xRadius, yRadius, rotation, 0, 2 * Math.PI);
+    if (mode === "fill") {
+        ctx.fill();
+    } else if (mode === "stroke") {
+        ctx.stroke();
+    }
+
+}
+
+function tree(x, y, xc, yc, color) {
+    fill(color);
+    rect(x, y, 20, 100, "fill");
+    fill("red");
+    circle(xc, yc, 40, "fill");
+}
+
 function car(x, y, xc, yc, xc2, color) {
     stroke(color);
     lineWidth(5);
