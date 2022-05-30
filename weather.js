@@ -87,14 +87,11 @@ function scene1() {
     if (x === 810) {
         x = 5; xc = 25; xc2 = 120;
         state = "scene2";
-    } else if (x <= 0) {
+    } else if (x <= 0 && aStart === false) {
         x = 5; xc = 25; xc2 = 120;
-    }
-
-    if (aStart = true) {
-        if (x <= 0) {
-            x = 5; xc = 25; xc2 = 120;
-        }
+    } else if (x <= 0 && aStart === true) {
+        x = 795; xc = 815; xc2 = 915;
+        state = "scene4";
     }
 
 }
@@ -161,5 +158,8 @@ function scene4() {
         x = 795; xc = 815; xc2 = 915;
         state = "scene3"
     }
+
+    tree(400, 350, 410, 320, "brown");
+    tree(600, 350, 610, 320, "brown");
 
 }

@@ -71,3 +71,4 @@ function car(x, y, xc, yc, xc2, color) {
     circle(xc, yc, 11, "fill");
     circle(xc2, yc, 11, "fill");
 }
+

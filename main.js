@@ -11,22 +11,16 @@ let y = 440;
 let xc = 25;
 let yc = 438;
 let xc2 = 120;
-let aStart = "play1";
-
-if (aStart = true) {
-    aStart = "play1"
-} else if (aStart = false) {
-    aStart = "play2"
-}
+let aStart = false;
 
 // Array
 let Snow = [];
 snowFn(50);
 let Rain = [];
 RainFn(100);
-
 let state = "scene1"
 
+// Draw animation
 requestAnimationFrame(draw);
 function draw() {
     if (state === "scene1") {
@@ -37,8 +31,6 @@ function draw() {
         scene3();
     } else if (state === "scene4") {
         scene4();
-    } else if (state === "scene5") {
-        scene5();
     }
 
     requestAnimationFrame(draw);
