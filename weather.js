@@ -1,3 +1,4 @@
+// Random snow between cnv.width and cnv.height, with different speeds
 function newRandomSnow() {
     return {
         x: randomInt(0, cnv.width),
@@ -8,6 +9,7 @@ function newRandomSnow() {
     };
 }
 
+// Total amount of snow on the screen
 function snowFn(total) {
     for (let n = 1; n <= total; n++) {
         Snow.push(newRandomSnow());
@@ -15,11 +17,13 @@ function snowFn(total) {
     return Snow;
 }
 
+// Draw snow on screen
 function drawSnow(snow) {
     fill(snow.color);
     circle(snow.x, snow.y, snow.r, "fill");
 }
 
+// When the snow goes past cnv.height, it comes back to the top
 function moveSnow(snow) {
     if (snow.y > cnv.height) {
         snow.y = 0;
@@ -28,16 +32,19 @@ function moveSnow(snow) {
     snow.y += snow.speed;
 }
 
+// Draw ground color and size
 function ground(x, y, color) {
     fill(color);
     rect(x, y, 800, 150, "fill");
 }
 
+// Draw sun or moon
 function bigCircle(x, y, color) {
     fill(color);
     circle(x, y, 35, "fill");
 }
 
+// Random rain between cnv.width and cnv.height, with different speeds
 function newRandomRain() {
     return {
         x: randomInt(0, cnv.width),
@@ -49,6 +56,7 @@ function newRandomRain() {
     };
 }
 
+// Total amount of rain on the screen
 function RainFn(total) {
     for (let n = 1; n <= total; n++) {
         Rain.push(newRandomRain());
@@ -56,11 +64,13 @@ function RainFn(total) {
     return Rain;
 }
 
+// Draw rain on screen
 function drawRain(rain) {
     fill(rain.color);
     ellipse(rain.x, rain.y, rain.xr, rain.yr, 0, "fill");
 }
 
+// When the rain goes past cnv.height, it comes back to the top
 function moveRain(rain) {
     if (rain.y > cnv.height) {
         rain.y = 0;
@@ -69,6 +79,7 @@ function moveRain(rain) {
     rain.y += rain.speed;
 }
 
+// Scene 1
 function scene1() {
     // Fill Canvas
     background("black");
@@ -122,6 +133,7 @@ function scene2() {
 
 }
 
+// Scene 3
 function scene3() {
 
     // Fill Canvas
@@ -141,6 +153,7 @@ function scene3() {
 
 }
 
+// Scene 4
 function scene4() {
 
     // Fill Canvas
