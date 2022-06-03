@@ -1,4 +1,4 @@
-// Project B by Sami
+// Car animation by Sami
 
 let cnv = document.getElementById("canvas");
 let ctx = cnv.getContext("2d");
